@@ -13,7 +13,7 @@ The Student table stores information about student readers. Each student has a u
 
 ERD:
 
-<img width="569" alt="Screenshot 2024-06-04 220928" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/ad84bb66-ced5-47b1-b652-5fb002ba59a9">
+<img width="552" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/146c0ee5-be4d-4c77-b3c2-91b17aa64d5a">
 
 DSD:
 
