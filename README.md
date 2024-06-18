@@ -21,12 +21,18 @@ DSD:
 
 All that is below is documented in the Queries.sql, ParamsQueries.sql, Constraints.sql and the log.log file
 
-If you check out the beginning of the log.log file you will see that we made 8 queries
+If you check out the beginning of the log.log file you will see that we made 8 queries 
+Here are the queries and some having example pictures of what it looked like.
 
 --Select all the Reader ID and names of readers who have lost or damaged cards Time: 68.177 ms
+<img width="240" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/a1eae36a-533a-4260-8bde-ca6eaa5948a9">
 --Select all the Reader ID, names and ages of children under the age of 6: 25.424 ms
+<img width="354" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/6a758a48-ad90-482b-91c5-b4bcdf1433f5">
+
 --Select all the reader ID, name and title of book with which the authors name is Michael Jackson  50.536 ms
 --Select all the family id, phone and email of families whos' size is greater than or equal to 4 and have more than 2 children 274.313 ms
+<img width="581" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/e2559c33-03c1-4ffa-8fec-13f1afe269f5">
+
 --To update the Student's ReaderCards to be Premium and NoStatus in terms of lost or damaged 205.373 ms
 --To update all the due dates for children under the age of 5 by 3 days 352.704 ms
 --deletes all the loans from students that are past their due date 72.902 ms
