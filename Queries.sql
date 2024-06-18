@@ -67,9 +67,24 @@ WHERE public."Loan"."ReaderID" = public."Student"."ReaderID"
 AND public."Loan"."DueDate" < current_date;
 
 
--- Delete adults who have no associated reader cards
+----------Delete the readers (and their readercard) of all children readers >= 18
+-- Begin transaction
+DELETE FROM public."Child"
+WHERE "Age" >= 18;
+--Time: 10.696 ms
+
+
+---- Delete all children with FamilyID 57250737
+DELETE FROM public."Child"
+WHERE "FamilyID" = 57250737;
+--Time: 13.581 ms
+
+-- Delete all adults with FamilyID 57250737
 DELETE FROM public."Adult"
-WHERE "ReaderID" NOT IN (
-    SELECT "ReaderID"
-    FROM public."ReaderCard"
-);
+WHERE "FamilyID" = 57250737;
+--Time: 3.851 ms
+
+-- Delete the family with FamilyID 57250737
+DELETE FROM public."Family"
+WHERE "FamilyID" = 57250737;
+-- Time: 16.571 ms
