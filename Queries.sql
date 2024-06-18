@@ -1,0 +1,75 @@
+
+--to get the Reader ID and names of readers who have lost or damaged cards
+SELECT r."ReaderID", r."Name"
+FROM public."Reader" r
+JOIN public."ReaderCard" rc ON r."ReaderID" = rc."ReaderID"
+WHERE rc."LostDamaged_Status" IN ('lost', 'damaged');
+
+--to get the Reader ID, names and ages of children under the age of 6
+SELECT r."ReaderID", r."Name", c."Age"
+FROM public."Reader" r
+JOIN public."Child" c ON r."ReaderID" = c."ReaderID"
+WHERE c."Age" < 6;
+
+--to get the reader ID, name and title of book with which the authors name is Michael Jackson
+SELECT r."ReaderID", r."Name", b."Title"
+FROM public."Reader" r
+JOIN public."Loan" l ON r."ReaderID" = l."ReaderID"
+JOIN public."Book" b ON l."BookID" = b."BookID"
+WHERE b."Author" = 'Michael Jackson';
+
+--to get the family id, phone and email of families whos' size is greater than or equal to 4 and have more than 2 children
+SELECT f."FamilyID", f."FamilyPhone", f."FamilyEmail", 
+       COUNT(a."ReaderID") + COUNT(c."ReaderID") AS "MemberCount",
+       COUNT(c."ReaderID") AS "ChildCount"
+FROM public."Family" f
+LEFT JOIN public."Adult" a ON f."FamilyID" = a."FamilyID"
+LEFT JOIN public."Child" c ON f."FamilyID" = c."FamilyID"
+GROUP BY f."FamilyID"
+HAVING COUNT(a."ReaderID") + COUNT(c."ReaderID") >= 4
+   AND COUNT(c."ReaderID") > 2;
+
+
+----------To update the Student's ReaderCards to be Premium and NoStatus in terms of lost or damaged
+UPDATE public."ReaderCard" rc
+SET "CardType" = 'premium', "LostDamaged_Status" = 'NoStatus'
+FROM public."Student" s
+WHERE rc."ReaderID" = s."ReaderID"
+  AND s."Institution" = 'university';
+
+--to view the change from above
+-- SELECT rc."CardNumber", rc."ReaderID", rc."CardType", rc."LostDamaged_Status", s."Institution", s."StudentID", s."StudEmail"
+-- FROM public."ReaderCard" rc
+-- JOIN public."Student" s ON rc."ReaderID" = s."ReaderID"
+-- WHERE s."Institution" = 'university';
+
+
+---------To update all the due dates for children under the age of 5 by 3 days
+UPDATE public."Loan" l
+SET "DueDate" = "DueDate" + INTERVAL '3 days'
+FROM public."Child" c
+WHERE l."ReaderID" = c."ReaderID"
+  AND c."Age" < 10;
+
+--To view the result:
+-- SELECT l."TransactionID", l."ReaderID", l."BookID", l."DueDate", r."Name", c."Age"
+-- FROM public."Loan" l
+-- JOIN public."Child" c ON l."ReaderID" = c."ReaderID"
+-- JOIN public."Reader" r ON l."ReaderID" = r."ReaderID"
+-- WHERE c."Age" < 10;
+
+
+
+---------deletes all the loans from students that are past their due date
+DELETE FROM public."Loan"
+USING public."Student"
+WHERE public."Loan"."ReaderID" = public."Student"."ReaderID"
+AND public."Loan"."DueDate" < current_date;
+
+
+-- Delete adults who have no associated reader cards
+DELETE FROM public."Adult"
+WHERE "ReaderID" NOT IN (
+    SELECT "ReaderID"
+    FROM public."ReaderCard"
+);
