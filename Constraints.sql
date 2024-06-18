@@ -3,7 +3,6 @@
 -- Create an index on Age column
 CREATE INDEX idx_age ON public."Child" ("Age");
 
-
 -- Create an index on the Author column
 CREATE INDEX idx_author ON public."Book" ("Author");
 
