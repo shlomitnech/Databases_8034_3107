@@ -4,12 +4,15 @@ SELECT r."ReaderID", r."Name"
 FROM public."Reader" r
 JOIN public."ReaderCard" rc ON r."ReaderID" = rc."ReaderID"
 WHERE rc."LostDamaged_Status" IN ('lost', 'damaged');
+--68.177 ms
 
 --to get the Reader ID, names and ages of children under the age of 6
 SELECT r."ReaderID", r."Name", c."Age"
 FROM public."Reader" r
 JOIN public."Child" c ON r."ReaderID" = c."ReaderID"
 WHERE c."Age" < 6;
+--25.424 ms
+
 
 --to get the reader ID, name and title of book with which the authors name is Michael Jackson
 SELECT r."ReaderID", r."Name", b."Title"
@@ -17,6 +20,7 @@ FROM public."Reader" r
 JOIN public."Loan" l ON r."ReaderID" = l."ReaderID"
 JOIN public."Book" b ON l."BookID" = b."BookID"
 WHERE b."Author" = 'Michael Jackson';
+--50.536 ms
 
 --to get the family id, phone and email of families whos' size is greater than or equal to 4 and have more than 2 children
 SELECT f."FamilyID", f."FamilyPhone", f."FamilyEmail", 
@@ -28,7 +32,7 @@ LEFT JOIN public."Child" c ON f."FamilyID" = c."FamilyID"
 GROUP BY f."FamilyID"
 HAVING COUNT(a."ReaderID") + COUNT(c."ReaderID") >= 4
    AND COUNT(c."ReaderID") > 2;
-
+--274.313 ms
 
 ----------To update the Student's ReaderCards to be Premium and NoStatus in terms of lost or damaged
 UPDATE public."ReaderCard" rc
@@ -36,6 +40,7 @@ SET "CardType" = 'premium', "LostDamaged_Status" = 'NoStatus'
 FROM public."Student" s
 WHERE rc."ReaderID" = s."ReaderID"
   AND s."Institution" = 'university';
+--205.373 ms
 
 --to view the change from above
 -- SELECT rc."CardNumber", rc."ReaderID", rc."CardType", rc."LostDamaged_Status", s."Institution", s."StudentID", s."StudEmail"
@@ -51,6 +56,8 @@ FROM public."Child" c
 WHERE l."ReaderID" = c."ReaderID"
   AND c."Age" < 10;
 
+  --352.704 ms
+
 --To view the result:
 -- SELECT l."TransactionID", l."ReaderID", l."BookID", l."DueDate", r."Name", c."Age"
 -- FROM public."Loan" l
@@ -58,21 +65,18 @@ WHERE l."ReaderID" = c."ReaderID"
 -- JOIN public."Reader" r ON l."ReaderID" = r."ReaderID"
 -- WHERE c."Age" < 10;
 
-
-
 ---------deletes all the loans from students that are past their due date
 DELETE FROM public."Loan"
 USING public."Student"
 WHERE public."Loan"."ReaderID" = public."Student"."ReaderID"
 AND public."Loan"."DueDate" < current_date;
-
+--72.902 ms
 
 ----------Delete the readers (and their readercard) of all children readers >= 18
 -- Begin transaction
 DELETE FROM public."Child"
 WHERE "Age" >= 18;
 --Time: 10.696 ms
-
 
 ---- Delete all children with FamilyID 57250737
 DELETE FROM public."Child"
@@ -83,6 +87,7 @@ WHERE "FamilyID" = 57250737;
 DELETE FROM public."Adult"
 WHERE "FamilyID" = 57250737;
 --Time: 3.851 ms
+
 
 -- Delete the family with FamilyID 57250737
 DELETE FROM public."Family"
