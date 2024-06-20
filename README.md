@@ -1,4 +1,3 @@
-<img width="683" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/31e19e54-bc86-446d-8ff5-c0593af7bdd9"># Databases_8034_3107
 This database is designed to store information about Readers in a library and their information. This includes their family members, books on loan and library card. The database consists of seven tables: Reader, Family, ReaderCard, Book, Adult, Student, and Loan.
 
 The Reader table stores information about individual readers. Each reader has a unique ReaderID, name, and other details.
@@ -72,6 +71,8 @@ We made indexes that sped up previous queries above
 -- Create an index on the Author column
 -- Create an index on BorrowDate column
 -- Create an index on DueDate column
+Here is a time table from before and after the indexes were made: 
+<img width="358" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/bb7a3bd4-ead1-4297-b714-4780dc723851">
 
 We made constraints
 -- Add unique constraint on ReaderID in Reader table
