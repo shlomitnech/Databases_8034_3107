@@ -6,8 +6,8 @@ FROM public."Book"
 WHERE "Author" = $1;
 --timing .947
 EXECUTE get_books_by_author ('Michael Jackson');
---timing 20.074
---timing after index:  4.418
+--Time: 21.826 ms
+--After Indexing: Time: 4.055 ms
 
 
 --Select All Children Older Than a Given Age
@@ -17,8 +17,8 @@ FROM public."Child"
 WHERE "Age" > $1;
 -- timing 0.358 ms
 EXECUTE get_children_older_than (10);
--- Time: 14.206 ms
--- Time after index: 14.911 ms
+--Time: 15.254 ms
+--After Indexing: Time: 14.489 ms
 
 --Select all Books on loan from a Reader
 PREPARE get_loans_by_reader (integer) AS
@@ -27,8 +27,8 @@ FROM public."Loan"
 WHERE "ReaderID" = $1;
 --Time: 0.448 ms
 EXECUTE get_loans_by_reader (106655);
---Time: 13.026 ms
---Time after index: 11.525 ms
+--Time: 22.499 ms
+--After Indexing: Time: 16.287 ms
 
 --Increment/update Child age by 1
 -- Prepare the parameterized update query
@@ -39,6 +39,7 @@ WHERE "ReaderID" = $1;
 --Time: 0.253 ms
 -- Execute the query with a specific ReaderID
 EXECUTE increment_child_age (100001); -- Increment age of Child with ReaderID 12345 by 1
---Time: 11.749 ms
---time after index: Time: 10.874 ms
+--Time: 9.903 ms, Time: 2.456 ms
+--After Indexing: Time: 3.503 ms, Time: 3.294 ms
+
 
