@@ -20,6 +20,8 @@ DSD:
 <br />
 All that is below is documented in the Queries.sql, ParamsQueries.sql, Constraints.sql and the log.log file
 
+In the GenerateDataa.py file we generated the data for the Readers. There are 200,000 readers in the database. 100,000 adults, 50,000 children, and 50,000 students.
+
 
 If you check out the beginning of the log.log file you will see that we made 8 queries 
 Here are the queries and some having example pictures of what it looked like.
