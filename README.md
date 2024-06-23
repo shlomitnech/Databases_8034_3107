@@ -26,60 +26,88 @@ In the GenerateDataa.py file we generated the data for the Readers. There are 20
 If you check out the beginning of the log.log file you will see that we made 8 queries 
 Here are the queries and some having example pictures of what it looked like.
 <br />
---Select all the Reader ID and names of readers who have lost or damaged cards Time: 68.177 ms
+--Select all the Reader ID and names of readers who have lost or damaged 
+cards
+<br />
+<br />
+Time: 501.631 ms
+
 <br />
 Here is what it looks like in the log file
 <br />
 <img width="240" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/a1eae36a-533a-4260-8bde-ca6eaa5948a9">
---Select all the Reader ID, names and ages of children under the age of 6: 25.424 ms
+--Select all the Reader ID, names and ages of children under the age of 6: 72.933 ms
 here is what it looks like in the log file
 <br />
 <img width="354" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/6a758a48-ad90-482b-91c5-b4bcdf1433f5">
 <br />
---Select all the reader ID, name and title of book with which the authors name is Michael Jackson  50.536 ms
+--Select all the reader ID, name and title of book with which the authors name is Michael Jackson 
+<br />
+Time: 160.171 ms
+<br />
 Here is an example of what it would look like in pgAdmin
 <br />
 <img width="205" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/cc641dad-f349-4fb7-8ded-4f607787cbf5">
 <br />
---Select all the family id, phone and email of families whos' size is greater than or equal to 4 and have more than 2 children 274.313 ms
+--Select all the family id, phone and email of families whos' size is greater than or equal to 4 and have more than 2 children
+<br />
+Time: 855.246 ms
 <br />
 <img width="581" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/e2559c33-03c1-4ffa-8fec-13f1afe269f5">
 <br />
---To update the Student's ReaderCards to be Premium and NoStatus in terms of lost or damaged 205.373 ms
+--To update the Student's ReaderCards to be Premium and NoStatus in terms of lost or damaged 
 <br />
---To update all the due dates for children under the age of 5 by 3 days 352.704 ms
+613.883 ms
+<br />
+--To update all the due dates for children under the age of 5 by 3 days
+<br />
+Time: 352.704 ms
 <br />
 Here is what the updates looks like in the log file
 <img width="100" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/d3dc294e-3e19-48c1-9518-7c1c971fa59b">
 
---deletes all the loans from students that are past their due date 72.902 ms
+--deletes all the loans from students that are past their due date
+<br />
+Time: 120.755 ms
+
 <br />
 <img width="58" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/3362d9f7-fb6e-47c9-9466-0838dbc99bff">
 <br />
---Delete the readers (and their readercard) of all children readers >= 18 
+--Delete the readers (and their readercard) of all children readers >= 18
 <br />
--=Delete all children with FamilyID 57250737 13.581 ms
+Time: 22.261 ms
 <br />
--- Delete all adults with FamilyID 57250737 3.851 ms
+-Delete all children with FamilyID 57250737 22.368 ms
 <br />
--- Delete the family with FamilyID 57250737 16.571 ms
+ Delete all adults with FamilyID 57250737  32.820 ms
+<br />
+-Delete the family with FamilyID 57250737 13.886 ms
 <br />
 
 Parameterized queries:
 <br />
---Select All Books by a Specific Author 20.074 --Time after index:  4.418
+--Select All Books by a Specific Author 
+<br />
+Time: 21.826 ms
 <br />
 <img width="709" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/9a12b7f8-8976-473e-bc39-aeeb95b3e5ff">
 <br />
---Select All Children Older Than a Given Age  14.206 ms-- Time after index: 14.911 ms
+--Select All Children Older Than a Given Age
+<br />
+Time: 15.254 ms
 <br />
 <img width="510" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/26ed549c-91fd-45f4-98fc-51bc68db5053">
 <br />
---Select all Books on loan from a Reader  13.026 ms -- Time after index: 11.525 ms
+--Select all Books on loan from a Reader
+<br />
+Time: 22.499 ms
+<br />
+
 <br />
 <img width="683" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/55943b7c-65c1-47d9-84c8-2d5c5ca7e7de">
 <br />
---Increment/update Child age by 1 11.749 ms --Time after index: Time: 10.874 ms
+--Increment/update Child age by 1 
+Time: 2.456 ms
 <br />
 Before the query: 
 <br />
