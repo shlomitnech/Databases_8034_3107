@@ -25,7 +25,7 @@ In the GenerateDataa.py file we generated the data for the Readers. There are 20
 
 If you check out the beginning of the log.log file you will see that we made 8 queries 
 Here are the queries and some having example pictures of what it looked like.
-
+<br />
 --Select all the Reader ID and names of readers who have lost or damaged cards Time: 68.177 ms
 <br />
 Here is what it looks like in the log file
