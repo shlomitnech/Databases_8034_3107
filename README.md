@@ -142,3 +142,19 @@ We made constraints
 --ERROR:  Failing row contains (20, 100002, 2).new row for relation "Child" violates check constraint "chk_valid_age" 
 --ERROR:  Failing row contains (1, 2024-06-15, 2024-06-10, 199347, 259025, null).new row for relation "Loan" violates check constraint "chk_due_date" 
 --ERROR: Referential integrity violation
+
+<br />
+Stage 3
+Here are four more queries that use two or three table joins. The queries are located at the bottom of the Queries.sql file.
+Select all books loaned by children (under the age of 18) with their due dates and the names of the children (590 ms)
+<br />
+<img width="584" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/bcd18282-91e3-41b2-b759-c6a4cb6b41fd">
+<br />
+Select all families along with the number of adult members and children they have (1589 ms)
+<br />
+<img width="495" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/8f9b6483-9615-4771-8df3-2e500ec976d2">
+<br />
+
+
+
+
