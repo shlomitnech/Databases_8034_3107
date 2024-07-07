@@ -164,7 +164,8 @@ Select all families along with the number of adult members and children they hav
 View premium vs regular student cards
 <img width="342" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/cf4aafc7-bae8-4373-b2e5-e9ca2bfdd7fe">
 
-
+Create a view to count the number of families by the number of children
+Some errors came up with the insert when you tried to insert into a family that doesn't exist.
 <img width="343" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/4907ebcd-fab0-46c1-b9f2-06c6e81c5a01">
 
 
