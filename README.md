@@ -155,6 +155,9 @@ Select all families along with the number of adult members and children they hav
 <img width="495" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/8f9b6483-9615-4771-8df3-2e500ec976d2">
 <br />
 
-
+--Students ID, their cards and their loan numbers ( 795 ms)
+<br />
+<img width="426" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/e4c29248-7461-4ddf-9d13-4c0bcad27ebe">
+<br />
 
 
