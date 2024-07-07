@@ -99,3 +99,31 @@ WHERE "FamilyID" = 57250737;
 DELETE FROM public."Family"
 WHERE "FamilyID" = 57250737;
 --13.886 ms
+
+
+--. Select all books loaned by children (under the age of 18) with their due dates and the names of the children.
+SELECT b."Title", b."Author", l."DueDate", r."Name" AS "ChildName", c."Age"
+FROM public."Book" b
+JOIN public."Loan" l ON b."BookID" = l."BookID"
+JOIN public."Reader" r ON l."ReaderID" = r."ReaderID"
+JOIN public."Child" c ON r."ReaderID" = c."ReaderID"
+WHERE c."Age" < 18;
+--time: 590 ms
+
+--Select all families along with the number of adult members and children they have.
+SELECT f."FamilyID", f."FamilyEmail", f."FamilyPhone", 
+       COUNT(DISTINCT a."ReaderID") AS "NumAdults", 
+       COUNT(DISTINCT c."ReaderID") AS "NumChildren"
+FROM public."Family" f
+LEFT JOIN public."Adult" a ON f."FamilyID" = a."FamilyID"
+LEFT JOIN public."Child" c ON f."FamilyID" = c."FamilyID"
+GROUP BY f."FamilyID", f."FamilyEmail", f."FamilyPhone";
+--time: 1589 ms
+
+--Students ID, their cards and their loan numbers
+SELECT s."ReaderID", s."StudentID", rc."CardNumber",
+       l."TransactionID", l."BookID"
+FROM public."Student" s
+JOIN public."ReaderCard" rc ON s."ReaderID" = rc."ReaderID"
+JOIN public."Loan" l ON s."ReaderID" = l."ReaderID";
+--time: 795 ms
