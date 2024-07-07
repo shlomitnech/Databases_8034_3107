@@ -169,3 +169,18 @@ Some errors came up with the insert when you tried to insert into a family that 
 <img width="343" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/4907ebcd-fab0-46c1-b9f2-06c6e81c5a01">
 
 
+
+We then made functions to replace some of the queries we have above.
+A function to get all the large families, their information and their size and children size.
+<br />
+<img width="294" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/7d9aae96-2446-4dac-b250-06761be40890">
+<br />
+
+A function to get the readers with lost of damaged cards
+<br />
+<img width="185" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/13902b1a-f294-4741-82d2-6a1d3917ff12">
+<br />
+
+A function to get the children under the age of 6
+<img width="177" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/23184c07-8512-4f83-978f-93dcd3d56ace">
+
