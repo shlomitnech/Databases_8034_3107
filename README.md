@@ -154,23 +154,40 @@ Select all families along with the number of adult members and children they hav
 <br />
 <img width="495" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/8f9b6483-9615-4771-8df3-2e500ec976d2">
 <br />
-
 --Students ID, their cards and their loan numbers ( 795 ms)
 <br />
 <img width="426" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/e4c29248-7461-4ddf-9d13-4c0bcad27ebe">
 <br />
 
+We also created Views that can be viewed in the Views.sql file uploaded. Here is a description of our views.
 
-View premium vs regular student cards
+View #1 premium vs regular student cards
+<br />
+
 <img width="342" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/cf4aafc7-bae8-4373-b2e5-e9ca2bfdd7fe">
+<br />
 
-Create a view to count the number of families by the number of children
+View #2 count the number of families by the number of children
+<br />
 Some errors came up with the insert when you tried to insert into a family that doesn't exist.
+<br />
+
 <img width="343" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/4907ebcd-fab0-46c1-b9f2-06c6e81c5a01">
+<br />
+
+View #3 All the Readers with current Loans
+<br />
+![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/267a40ed-b28a-43d6-abf6-12408cca9ddf)
+<br />
+
+View #4 To view child readers and their family info
+<br />
+![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/e1e504a3-c959-4d0e-9b4a-7d4ebba9a580)
+<br />
 
 
 
-We then made functions to replace some of the queries we have above.
+We then made functions to replace some of the queries we have above. This can be viewed in the functions.sql file. Here is a description of them.
 A function to get all the large families, their information and their size and children size.
 <br />
 <img width="294" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/7d9aae96-2446-4dac-b250-06761be40890">
@@ -182,5 +199,23 @@ A function to get the readers with lost of damaged cards
 <br />
 
 A function to get the children under the age of 6
+<br />
 <img width="177" alt="image" src="https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/23184c07-8512-4f83-978f-93dcd3d56ace">
+<br />
+A function to select large families
+<br />
+![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/0c99acfd-ac2e-4408-a6b1-c2868ad5033a)
+<br />
+
+A Function that categorizes the children into different age groups
+<br />
+![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/c46c5b11-74d2-4828-b6e5-b83463b0a2ed)
+<br />
+
+A function to count the loans each reader has
+<br />
+![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/9234b15f-c53b-4e41-a90f-7159b49a6635)
+<br />
+
+
 
