@@ -75,3 +75,91 @@ WHERE "ReaderID" = 123456;
 -- Delete a child from a family
 DELETE FROM public."Child"
 WHERE "ReaderID" = 123456;
+
+--View all readers with loan info
+CREATE VIEW AllReadersWithLoans AS
+SELECT 
+    R."ReaderID", 
+    R."Name", 
+    L."TransactionID", 
+    L."BorrowDate", 
+    L."DueDate", 
+    B."Title" AS BookTitle
+FROM 
+    public."Reader" R
+JOIN 
+    public."Loan" L ON R."ReaderID" = L."ReaderID"
+JOIN 
+    public."Book" B ON L."BookID" = B."BookID";
+
+--Show the view "AllReadersWithLoans"
+SELECT * 
+FROM AllReadersWithLoans
+
+--Insert into AllReadersWithLoans
+INSERT INTO public."Reader" ("ReaderID", "Name") VALUES (2000005, 'Chris Brown');
+INSERT INTO public."Book" ("BookID", "Title", "Author", "ISBN") VALUES (2000002, 'Another Book', 'Another Author', '9876543210987');
+INSERT INTO public."Loan" ("TransactionID", "BorrowDate", "DueDate", "ReaderID", "BookID") VALUES (20002, '2023-08-01', '2023-08-15', 2000005, 2000002);
+
+--Update AllReadersWithLoans
+UPDATE public."Loan"
+SET "DueDate" = '2023-08-20'
+WHERE "TransactionID" = 20002 AND "ReaderID" = 2000005 AND "BookID" = 2000002;
+
+UPDATE public."Reader"
+SET "Name" = 'Christopher Brown'
+WHERE "ReaderID" = 2000005;
+
+--Delete from AllReadersWithLoans
+DELETE FROM public."Loan"
+WHERE "TransactionID" = 20002 AND "ReaderID" = 2000005 AND "BookID" = 2000002;
+
+DELETE FROM public."Reader"
+WHERE "ReaderID" = 2000005;
+
+DELETE FROM public."Book"
+WHERE "BookID" = 2000002;
+
+
+--View for Child Readers and their Family information
+CREATE VIEW ChildFamilyInfo AS
+SELECT 
+    R."ReaderID", 
+    R."Name", 
+    C."Age", 
+    F."FamilyPhone", 
+    F."FamilyEmail"
+FROM 
+    public."Reader" R
+JOIN 
+    public."Child" C ON R."ReaderID" = C."ReaderID"
+JOIN 
+    public."Family" F ON C."FamilyID" = F."FamilyID";
+
+--Show the view ChildFamilyInfo
+SELECT *
+FROM ChildFamilyInfo
+
+--Insert into ChildFamilyInfo
+INSERT INTO public."Family" ("FamilyID", "FamilyPhone", "FamilyEmail") VALUES (200000, '444-555-6666', 'another.family@example.com');
+INSERT INTO public."Reader" ("ReaderID", "Name") VALUES (200003, 'Jake Doe');
+INSERT INTO public."Child" ("ReaderID", "FamilyID", "Age") VALUES (200003, 200000, 8);
+
+--Update ChildFamilyInfo
+UPDATE public."Child"
+SET "Age" = 9
+WHERE "ReaderID" = 200003;
+
+UPDATE public."Family"
+SET "FamilyEmail" = 'new.email@example.com'
+WHERE "FamilyID" = 200000;
+
+--Delete from ChildFamilyInfo
+DELETE FROM public."Child"
+WHERE "ReaderID" = 200003;
+
+DELETE FROM public."Reader"
+WHERE "ReaderID" = 200003;
+
+DELETE FROM public."Family"
+WHERE "FamilyID" = 200000;
