@@ -1,3 +1,4 @@
+--Function 1
 CREATE OR REPLACE FUNCTION get_readers_with_lost_damaged_cards()
 RETURNS TABLE ("ReaderID" INTEGER, "Name" VARCHAR)
 AS $$
@@ -10,6 +11,7 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
+--Function 2
 CREATE OR REPLACE FUNCTION get_children_under_age_6()
 RETURNS TABLE ("ReaderID" INTEGER, "Name" VARCHAR, "Age" INTEGER)
 AS $$
@@ -22,7 +24,7 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
-
+--Function 3
 CREATE OR REPLACE FUNCTION get_large_families()
 RETURNS TABLE ("FamilyID" INTEGER, "FamilyPhone" VARCHAR, "FamilyEmail" VARCHAR, "MemberCount" INTEGER, "ChildCount" INTEGER)
 AS $$
@@ -40,6 +42,7 @@ BEGIN
 END;
 $$ LANGUAGE PLPGSQL;
 
+--Function 4
 --Function that categorizes the children into different age groups
 CREATE OR REPLACE FUNCTION fn_categorize_readers_age_group()
 RETURNS TABLE("reader_id" INTEGER, "name" VARCHAR, "age_group" VARCHAR)
@@ -63,6 +66,7 @@ $$
 LANGUAGE plpgsql;
 
 
+--Function 5
 --Function to count how many loans each reader has
 CREATE OR REPLACE FUNCTION fn_count_loans_per_reader()
 RETURNS TABLE("reader_id" INT, "name" VARCHAR, "loan_count" INT)
