@@ -1,3 +1,4 @@
+--View 1
 -- Create a view for all active students and their corresponding reader cards
 CREATE VIEW students_reader_cards AS
 SELECT
@@ -11,6 +12,7 @@ SELECT
 FROM public."Student" s
 JOIN public."ReaderCard" rc ON s."ReaderID" = rc."ReaderID";
 
+--View 2
 -- Create a summary view to count the number of students with premium and regular cards
 CREATE VIEW student_card_summary AS
 SELECT
@@ -44,6 +46,7 @@ DELETE FROM public."Student"
 WHERE "ReaderID" = 123456;
 
 
+--View 3
 -- Create a view to count the number of families by the number of children
 CREATE VIEW family_size_distribution AS
 SELECT
@@ -76,6 +79,7 @@ WHERE "ReaderID" = 123456;
 DELETE FROM public."Child"
 WHERE "ReaderID" = 123456;
 
+--View 4
 --View all readers with loan info
 CREATE VIEW AllReadersWithLoans AS
 SELECT 
@@ -121,6 +125,7 @@ DELETE FROM public."Book"
 WHERE "BookID" = 2000002;
 
 
+--View 5
 --View for Child Readers and their Family information
 CREATE VIEW ChildFamilyInfo AS
 SELECT 
