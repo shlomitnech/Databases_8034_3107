@@ -217,5 +217,23 @@ A function to count the loans each reader has
 ![image](https://github.com/shlomitnech/Databases_8034_3107/assets/98982263/9234b15f-c53b-4e41-a90f-7159b49a6635)
 <br />
 
+Stage 4
+Here we merged our ERD and DSD with the Book Database.
+<br />
+This is the Readers ERD (Ours):
+<br />
+![image](https://github.com/user-attachments/assets/14a33db0-8243-4bd6-87c3-edce4fb4d02a)
+<br />
+This is the Book ERD:
+![image](https://github.com/user-attachments/assets/bc544e72-0135-41d6-9429-2f9950dac5c8)
+<br />
+Here is the merged version:
+![image](https://github.com/user-attachments/assets/280a7448-de18-4229-8321-1329ae3d3f4c)
+<br />
+Here is the DSD of the merged databases:
+<br />
+![image](https://github.com/user-attachments/assets/2f70498f-f034-415e-bf8f-30ece4a5d2da)
+
+
 
 
