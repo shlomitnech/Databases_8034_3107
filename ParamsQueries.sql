@@ -1,4 +1,4 @@
-
+--#1
 --Select All Books by a Specific Author
 PREPARE get_books_by_author (varchar) AS
 SELECT "BookID", "Title", "Author", "ISBN"
@@ -9,7 +9,7 @@ EXECUTE get_books_by_author ('Michael Jackson');
 --Time: 21.826 ms
 --After Indexing: Time: 4.055 ms
 
-
+--#2
 --Select All Children Older Than a Given Age
 PREPARE get_children_older_than (int) AS
 SELECT "ReaderID", "Age", "FamilyID"
@@ -20,6 +20,7 @@ EXECUTE get_children_older_than (10);
 --Time: 15.254 ms
 --After Indexing: Time: 14.489 ms
 
+--#3
 --Select all Books on loan from a Reader
 PREPARE get_loans_by_reader (integer) AS
 SELECT "TransactionID", "BorrowDate", "DueDate", "ReaderID", "BookID"
@@ -30,6 +31,7 @@ EXECUTE get_loans_by_reader (106655);
 --Time: 22.499 ms
 --After Indexing: Time: 16.287 ms
 
+--#4
 --Increment/update Child age by 1
 -- Prepare the parameterized update query
 PREPARE increment_child_age (integer) AS
