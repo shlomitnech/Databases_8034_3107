@@ -1,35 +1,45 @@
 
 --INDEXES
+--Index 1
 -- Create an index on Age column
+
 CREATE INDEX idx_age ON public."Child" ("Age");
 
+--Index 2
 -- Create an index on the Author column
 CREATE INDEX idx_author ON public."Book" ("Author");
 
-
+--Index 3
 -- Create an index on BorrowDate column
 CREATE INDEX idx_borrow_date ON public."Loan" ("BorrowDate");
 
+--Index 4
 -- Create an index on DueDate column
 CREATE INDEX idx_due_date ON public."Loan" ("DueDate");
 
 
 --CONSTRAINTS
 -- Add unique constraint on ReaderID in Reader table
+--Constraint 1
 ALTER TABLE public."Reader" ADD CONSTRAINT uniq_reader_id UNIQUE ("ReaderID");
 
+--Constraint 2
 -- Add check constraint on Age in Child table to ensure it's within a valid range
 ALTER TABLE public."Child" ADD CONSTRAINT chk_valid_age CHECK ("Age" >= 0 AND "Age" <= 18);
 
+--Constraint 3
 -- Add foreign key constraint on ReaderID in Loan table referencing Reader table
 ALTER TABLE public."Loan" ADD CONSTRAINT fk_loan_reader_id FOREIGN KEY ("ReaderID") REFERENCES public."Reader" ("ReaderID");
 
+--Constraint 4
 -- Add foreign key constraint on BookID in Loan table referencing Book table
 ALTER TABLE public."Loan" ADD CONSTRAINT fk_loan_book_id FOREIGN KEY ("BookID") REFERENCES public."Book" ("BookID");
 
+--Constraint 5
 -- Add check constraint on BorrowDate to ensure it's not in the future
 ALTER TABLE public."Loan" ADD CONSTRAINT chk_borrow_date CHECK ("BorrowDate" <= CURRENT_DATE);
 
+--Constraint 6
 -- Add check constraint on DueDate to ensure it's not before BorrowDate
 ALTER TABLE public."Loan" ADD CONSTRAINT chk_due_date CHECK ("DueDate" >= "BorrowDate");
 
