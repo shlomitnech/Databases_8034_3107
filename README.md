@@ -237,6 +237,24 @@ Here is the DSD of the merged databases:
 <br />
 ![image](https://github.com/user-attachments/assets/2f70498f-f034-415e-bf8f-30ece4a5d2da)
 
+We made views that combined both databases.
+<br />
+#1 View that prints the readerIDs and the book on loan, along with its author and condition.
+<br />
+
+![image](https://github.com/user-attachments/assets/d62bb4f1-8ecb-4b01-a534-0b5955ee673e)
+<br />
+
+Here we have a select query to view one <br />
+
+![image](https://github.com/user-attachments/assets/8fa5d6d0-bd59-47f0-b317-7f6f2389dd64)
+<br />
+Here is another query to view all with a certain genre
+<br />
+![image](https://github.com/user-attachments/assets/3ca23d8c-05fc-497a-96b8-28ef98fe4a7d)
+<br />
+We also have an update the rating of a book's author for a specific book ID and to insert a new loan for a Reader.
+
 
 
 
