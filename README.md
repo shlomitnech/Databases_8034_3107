@@ -255,6 +255,11 @@ Here is another query to view all with a certain genre
 <br />
 We also have an update the rating of a book's author for a specific book ID and to insert a new loan for a Reader.
 
+<br />
+For View #2 we made a view to see specifically the Students and their loan information
+<br />
+![image](https://github.com/user-attachments/assets/5ab3a0ce-3681-43a3-8b83-d468df0d0986)
 
 
-
+<br />
+We also have updates, and select for the genre.
