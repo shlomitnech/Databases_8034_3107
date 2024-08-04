@@ -238,7 +238,8 @@ Here is the DSD of the merged databases:
 ![image](https://github.com/user-attachments/assets/2f70498f-f034-415e-bf8f-30ece4a5d2da)
 
 We made views that combined both databases.
-<br />
+[https://github.com/shlomitnech/Databases_8034_3107/blob/main/Merged%20(Stage%204)/ViewDBLink.sql
+](url)<br />
 #1 View that prints the readerIDs and the book on loan, along with its author and condition.
 <br />
 
